@@ -1,0 +1,84 @@
+mgl-map {
+    height: 100%;
+    width: 100%;
+}
+
+.map-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* height: calc(100vh - 77px); */
+    /* calculate height of the screen minus the heading */
+}
+
+.map {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.watermark {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    z-index: 999;
+}
+
+.marker {
+    width: 30px;
+    height: 30px;
+    background-image: 'assets/marker.png';
+    background-size: cover;
+    border-radius: 50%;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.sidenav-content {
+    position: relative;
+    height: 100vh;
+}
+
+button.mat-mini-fab {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+}
+
+.sidenav {
+    padding: 20px;
+}
+
+.zoom-buttons-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    /* Stack buttons vertically */
+}
+
+.zoom-button {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-bottom: 0px;
+    /* Space between buttons */
+}
+
+.zoom-button:last-child {
+    margin-bottom: 0;
+    /* Remove margin for the last button */
+}
+
+.zoom-button:active {
+    background-color: #ddd;
+}

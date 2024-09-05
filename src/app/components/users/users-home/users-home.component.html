@@ -1,0 +1,46 @@
+<mat-drawer-container class="container" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side">
+        <p class="fw-bold d-flex align-items-center">
+            <mat-icon><span class="material-symbols-outlined">
+                my_location
+            </span></mat-icon>
+            Devices
+        </p>
+        <mat-divider></mat-divider>
+        <mat-list *ngFor="let dl of device_list" class="" [ngClass]="{'hover pointer': dl?.lat !== null && dl.lng !== null}" [disabled]="!(dl?.lat !== null && dl?.lng !== null)">
+            <mat-list-item (click)="navigate(dl?.lat, dl?.lng)">
+                <mat-icon mat-list-icon><span class="material-symbols-outlined">
+                    local_taxi
+                </span></mat-icon>
+                <div mat-line class="fw-bold">{{dl?.device_name}}</div>
+                <div mat-line class="text-secondary"><small>IMEI: {{dl?.device_imei | uppercase}}</small></div>
+            </mat-list-item>
+        </mat-list>
+
+
+    </mat-drawer>
+
+    <div class="sidenav-content">
+        
+        <button mat-mini-fab color="primary" aria-label="Goal 2: All devices in a Menu" type="button" mat-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <div class="map-wrap">
+            <a href="https://www.maptiler.com" class="watermark"><img src="https://api.maptiler.com/resources/logo.svg"
+                    alt="MapTiler logo" /></a>
+            <div class="map" #map></div>
+            <div class="zoom-buttons-container">
+                <button id="recenter" class="zoom-button" (click)="ngAfterViewInit()">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+                        <path
+                            d="M440-42v-80q-125-14-214.5-103.5T122-440H42v-80h80q14-125 103.5-214.5T440-838v-80h80v80q125 14 214.5 103.5T838-520h80v80h-80q-14 125-103.5 214.5T520-122v80h-80Zm40-158q116 0 198-82t82-198q0-116-82-198t-198-82q-116 0-198 82t-82 198q0 116 82 198t198 82Zm0-120q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm0-80Z" />
+                    </svg>
+                </button>
+                <button id="zoom-in" class="zoom-button">+</button>
+                <button id="zoom-out" class="zoom-button">-</button>
+            </div>
+        </div>
+    </div>
+
+</mat-drawer-container>

@@ -1,0 +1,22 @@
+<div class="login-container">
+    <mat-card style="border: 1px solid #9e9e9e">
+        <mat-card-title>Login</mat-card-title>
+        <mat-card-content>
+            <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm">
+                <mat-form-field class="input-full-width" appearance="standard">
+                    <mat-label>Email Address</mat-label>
+                    <input matInput type="text" name="user_email" [(ngModel)]="loginForm.user_email" #user_email="ngModel" required 
+                    [ngClass]="{ 'is-invalid': f.submitted && loginForm.user_email.invalid }">
+                    <div *ngIf="f.submitted && loginForm.user_email.invalid" class="invalid-feedback">
+                        <div *ngIf="loginForm.user_email.errors.required">First Name is required</div>
+                    </div>
+                </mat-form-field>
+                <mat-form-field class="input-full-width" appearance="standard">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" name="user_passwd" [(ngModel)]="loginForm.user_passwd" #user_passwd="ngModel" required>
+                </mat-form-field>
+                <button mat-raised-button type="submit" color="primary">Log In</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>
